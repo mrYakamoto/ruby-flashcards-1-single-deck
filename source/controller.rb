@@ -3,8 +3,10 @@ require_relative 'view'
 
 
 View.welcome_message
+deck_txt_file_path = View.ask_for_deck
+View.lets_play
 
-my_deck = Deck.new(ParseOurTxt.parse_text('./flashcard_samples.txt'))
+my_deck = Flashcards::Deck.new(Flashcards::ParseOurTxt.parse_text(deck_txt_file_path))
 
 until my_deck.cards.all?{|card|card.is_solved == :solved} do
 
